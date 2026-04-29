@@ -1,0 +1,522 @@
+.page {
+  padding-top: 64px; /* navbar is fixed */
+  --text: #0f172a;
+  --muted: #64748b;
+}
+
+/* ===== Shared hero/header styles ===== */
+
+.hero {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 38px 24px 10px 24px;
+}
+
+.heroInner {
+  padding: 22px 22px 12px 22px;
+}
+
+.title {
+  font-size: 44px;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.muted {
+  font-size: 18px;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.subtitle {
+  margin: 10px 0 18px 0;
+  color: #334155;
+  max-width: 760px;
+  line-height: 1.45;
+}
+
+.hints {
+  margin-top: 14px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.hintChip {
+  font-size: 12px;
+  color: #334155;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid #e5e9f0;
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+
+/* Compact hero variants (used on map-heavy pages) */
+.heroCompact {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 24px 6px 24px; /* snug under navbar */
+}
+
+.heroInnerCompact {
+  padding: 8px 8px 0 8px;
+}
+
+.subtitleCompact {
+  margin: 0 0 8px 0;
+  color: #334155;
+  max-width: 900px;
+  line-height: 1.35;
+  font-size: 14px;
+}
+
+/* ===== Standard content/card styles ===== */
+
+.mapSection {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 18px 24px 48px 24px;
+}
+
+.mapSectionCompact {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 8px 24px 16px 24px;
+}
+
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 22px 24px 48px 24px;
+}
+
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.headerSearch {
+  min-width: 360px;
+  max-width: 520px;
+  flex: 1;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid #e5e9f0;
+  border-radius: 18px;
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.06);
+  overflow: hidden;
+}
+
+.cardHeader {
+  padding: 16px 18px;
+  border-bottom: 1px solid #eef2f7;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.cardBody {
+  padding: 14px 18px 16px 18px;
+}
+
+.cardBodyStack {
+  padding: 14px 18px 16px 18px;
+  display: grid;
+  gap: 12px;
+}
+
+.cardTitle {
+  font-weight: 800;
+  margin: 0;
+}
+
+.cardSub {
+  margin-top: 4px;
+  font-size: 13px;
+  color: #64748b;
+}
+
+.grid {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 16px;
+}
+
+.stack {
+  display: grid;
+  gap: 16px;
+}
+
+.dataGrid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+@media (max-width: 980px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .headerSearch {
+    min-width: 100%;
+  }
+}
+
+/* ===== Home/Landing layout (map hero + right panel flush) ===== */
+
+.pageNoScroll {
+  padding-bottom: 0;
+}
+
+.landingShell {
+  display: grid;
+  grid-template-columns: 1fr 260px; /* slimmer panel */
+  gap: 16px;
+  padding: 10px 0 16px 24px; /* no right padding => right panel flush */
+  align-items: start;
+}
+
+.landingLeft {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding-right: 16px;
+  display: grid;
+  gap: 12px;
+  min-width: 0;
+}
+
+.landingRight {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 0;
+  margin-right: 0;
+  position: sticky;
+  top: 76px;
+  height: fit-content;
+}
+
+.mapHeroCard {
+  height: 100%;
+  width: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(229, 233, 240, 0.55);
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.06);
+}
+
+/* Quick panel (no white card background) */
+.quickCard {
+  width: 260px;
+  padding: 12px;
+  border-radius: 16px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+.quickTitle {
+  font-weight: 900;
+  font-size: 14px;
+}
+
+.quickSub {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #64748b;
+}
+
+.quickGrid {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+.quickBtn {
+  width: 100%;
+  padding: 10px 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(229, 233, 240, 0.65);
+  background: rgba(255, 255, 255, 0.22);
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center; /* center emoji + text */
+  gap: 10px;
+
+  font-weight: 800;
+  color: #0f172a;
+  text-align: center;
+}
+
+.quickBtn:hover {
+  border-color: rgba(37, 99, 235, 0.4);
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+.quickEmoji {
+  display: inline-flex;
+  justify-content: center;
+}
+
+.quickHint {
+  margin-top: 12px;
+  font-size: 12px;
+  color: #64748b;
+  line-height: 1.35;
+}
+
+/* Home responsive */
+@media (max-width: 1100px) {
+  .landingShell {
+    grid-template-columns: 1fr;
+    height: auto;
+    padding: 10px 24px 16px 24px;
+  }
+
+  .landingRight {
+    position: static;
+    justify-content: stretch;
+  }
+
+  .quickCard {
+    width: 100%;
+  }
+
+  .quickGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ===== Detail (older) sticky map layout ===== */
+
+.detailHero {
+  padding: 26px 24px 14px 24px;
+}
+
+.detailShell {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 18px;
+  padding: 10px 0 36px 24px; /* flush to right wall */
+}
+
+.detailLeft {
+  padding-right: 18px;
+  min-width: 0;
+}
+
+.detailRight {
+  position: sticky;
+  top: 78px;
+  height: calc(100vh - 96px);
+  padding-right: 0;
+}
+
+.stickyMapCard {
+  height: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 16px 48px rgba(15, 23, 42, 0.12);
+}
+
+.mapHeaderRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.mapHeaderTitle {
+  font-weight: 800;
+}
+
+.mapHeaderSub {
+  font-size: 13px;
+  color: rgba(15, 23, 42, 0.65);
+  margin-top: 2px;
+}
+
+@media (max-width: 1050px) {
+  .detailShell {
+    grid-template-columns: 1fr;
+    padding: 10px 24px 36px 24px;
+  }
+
+  .detailRight {
+    position: static;
+    height: auto;
+  }
+
+  .stickyMapCard {
+    height: 440px;
+  }
+}
+
+/* ===== Wide split layout (Area / Fire pages) ===== */
+
+.splitShell {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 18px 24px 32px 24px;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.splitHeader {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.splitHeaderSearch {
+  width: min(560px, 40vw);
+}
+
+.splitLeft {
+  min-width: 0;
+}
+
+.splitRight {
+  align-self: start;
+  min-width: 0;
+  position: sticky;
+  top: 72px;
+}
+
+.stickyCard {
+  height: calc(100vh - 96px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.stickyBody {
+  flex: 1;
+  min-height: 0;
+}
+
+.mapFrame {
+  position: relative;
+  height: 100%;
+}
+
+.mapOverlay {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 16px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+}
+
+.pill {
+  appearance: none;
+  border: 1px solid rgba(15, 23, 42, 0.16);
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 999px;
+  padding: 8px 10px;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--text);
+  cursor: pointer;
+  transition: box-shadow 120ms ease, border-color 120ms ease, transform 120ms ease, background 120ms ease;
+}
+
+.pill:hover {
+  border-color: rgba(37, 99, 235, 0.35);
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12);
+}
+
+.pill:active {
+  transform: translateY(1px);
+}
+
+.pillActive {
+  background: rgba(37, 99, 235, 0.12);
+  border-color: rgba(37, 99, 235, 0.4);
+}
+
+.smallLabel {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.metricGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.metric {
+  padding: 12px 14px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.72));
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.06);
+  min-height: 82px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.metricLabel {
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.metricValue {
+  font-size: 26px;
+  font-weight: 900;
+  margin-top: 4px;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.05;
+}
+
+@media (max-width: 1100px) {
+  .splitShell {
+    grid-template-columns: 1fr;
+    padding: 16px 24px 24px 24px;
+  }
+
+  .splitHeaderSearch {
+    width: 100%;
+    max-width: 640px;
+  }
+
+  .splitRight {
+    position: static;
+  }
+
+  .stickyCard {
+    height: 420px;
+  }
+}
