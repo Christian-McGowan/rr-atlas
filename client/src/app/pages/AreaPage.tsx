@@ -8,9 +8,10 @@ import EventsPanel from "../../components/EventsPanel";
 import ResourceList from "../../components/ResourceList";
 import { api } from "../../lib/api";
 import type { Place, RiskSnapshot as RiskSnapshotT, AtlasEvent, CommunityResource } from "../../lib/types";
-
+import { useNavigate } from "react-router-dom";
 const AS_OF_LABEL = "Feb 10, 2026";
 const AS_OF_DATE = new Date("2026-02-10T23:59:59Z");
+
 
 function isLiveEvent(e: AtlasEvent) {
   const s = (e.status ?? "").toLowerCase();
@@ -61,6 +62,7 @@ export default function AreaPage() {
   const [view, setView] = useState<"live" | "all">("live");
 
   const safeSlug = useMemo(() => slug ?? "", [slug]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     let cancelled = false;
@@ -151,7 +153,25 @@ export default function AreaPage() {
                   <div className={styles.cardSub}>Modeled indices (0–100) + top hazards</div>
                 </div>
               </div>
-              <div className={styles.cardBody}>{risk && <RiskSnapshot risk={risk} />}</div>
+              <div className={styles.cardBody}>
+              {risk && <RiskSnapshot risk={risk} />}
+              
+              <div style={{ marginTop: "16px" }}>
+                <button
+                  onClick={() => navigate("/compare")}
+                  style={{
+                    padding: "10px 16px",
+                    borderRadius: "8px",
+                    border: "none",
+                    backgroundColor: "#2563eb",
+                    color: "white",
+                    cursor: "pointer"
+                  }}
+                >
+                  Compare Cities
+                </button>
+              </div>
+            </div>
             </div>
 
             <div className={styles.card}>
