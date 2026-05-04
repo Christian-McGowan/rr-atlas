@@ -2,7 +2,7 @@ import React from 'react';
 
 const AboutPage: React.FC = () => {
   return (
-       <div style = {{ padding: "40px"}}>
+<div style = {{ padding: "40px"}}>
         <h1 style = {{ fontSize: "2rem", fontWeight: "bold", textAlign: "center"}}>
             About R&amp;R Atlas
         </h1>
@@ -43,8 +43,15 @@ const AboutPage: React.FC = () => {
                     <p style= {{fontWeight: 'bold'}}> Emmanuel De Guzman</p>
                 </div>
             </div>
-
         </div>
+
+        <div className= 'about-the-team'>
+            <h2 style = {{ fontSize: "1.5rem", fontWeight: "bold", textAlign: "center"}}>
+                Github Repository
+            </h2>
+            <p style= {{ display: 'flex', justifyContent: 'center'}}> https://github.com/Christian-McGowan/rr-atlas</p>
+        </div>
+
     </div>
   );
 };
