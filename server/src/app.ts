@@ -5,6 +5,7 @@ import { searchRouter } from "./routes/search.js";
 import { placesRouter } from "./routes/places.js";
 import { riskRouter } from "./routes/risk.js";
 import { fireRouter } from "./routes/fire.js";
+import { authRouter } from "./routes/auth.js";
 
 export function createApp() {
   const app = express();
@@ -18,6 +19,7 @@ export function createApp() {
   app.use("/api/places", placesRouter);
   app.use("/api/risk", riskRouter);
   app.use("/api/fire", fireRouter);
+  app.use("/api/auth", authRouter);
 
   // Generic events + resources
   app.get("/api/events", async (req, res) => {
