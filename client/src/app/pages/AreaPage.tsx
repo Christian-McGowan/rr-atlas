@@ -6,6 +6,7 @@ import SearchBar from "../../components/SearchBar";
 import RiskSnapshot from "../../components/RiskSnapshot";
 import EventsPanel from "../../components/EventsPanel";
 import ResourceList from "../../components/ResourceList";
+import SaveLocationCard from "../../components/SaveLocationCard";
 import { api } from "../../lib/api";
 import type { Place, RiskSnapshot as RiskSnapshotT, AtlasEvent, CommunityResource } from "../../lib/types";
 import { useNavigate } from "react-router-dom";
@@ -173,6 +174,8 @@ export default function AreaPage() {
               </div>
             </div>
             </div>
+
+            <SaveLocationCard place={place} />
 
             <div className={styles.card}>
               <div className={styles.cardHeader}>
