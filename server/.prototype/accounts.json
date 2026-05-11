@@ -1,0 +1,26 @@
+{
+  "accounts": [
+    {
+      "id": "b182f43d-06c1-457c-ba8a-33b49199dc6b",
+      "name": "test",
+      "email": "test@gmail.com",
+      "passwordHash": "d33e4bc301c1c4af967c65750c5c5599dbf054e46b334f8c5fdb080a67212bcb4c7901962b3f3131e3690c6571852bfff70bf8433d7ecbaff8abbc7f2e886c4f",
+      "passwordSalt": "85eca8ca89721fa8d071ceb4036171aa",
+      "createdAt": "2026-05-05T05:47:09.305Z",
+      "updatedAt": "2026-05-05T05:47:09.305Z",
+      "savedLocations": [],
+      "preferences": {
+        "emailAlerts": true,
+        "inAppAlerts": true,
+        "minimumSeverity": "Medium",
+        "hazards": [
+          "Wildfire",
+          "Flood",
+          "Severe storm"
+        ],
+        "weeklySummary": true,
+        "quietHours": false
+      }
+    }
+  ]
+}

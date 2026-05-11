@@ -1,0 +1,455 @@
+.page {
+  min-height: 100vh;
+  padding: 88px 24px 48px 24px;
+}
+
+.authShell,
+.dashboardShell {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+}
+
+.authShell {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(360px, 0.72fr);
+  gap: 28px;
+  align-items: center;
+}
+
+.authInfo,
+.authCard,
+.dashboardCard,
+.loadingCard,
+.dashboardHero,
+.statCard {
+  border: 1px solid rgba(226, 232, 240, 0.92);
+  background: rgba(255, 255, 255, 0.78);
+  border-radius: 24px;
+  box-shadow: 0 18px 50px rgba(15, 23, 42, 0.08);
+  backdrop-filter: blur(14px);
+}
+
+.authInfo {
+  padding: 34px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(37, 99, 235, 0.22);
+  background: rgba(37, 99, 235, 0.08);
+  color: #1d4ed8;
+  border-radius: 999px;
+  padding: 7px 11px;
+  font-weight: 900;
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 14px 0 0 0;
+  max-width: 760px;
+  color: #0f172a;
+  font-size: clamp(34px, 6vw, 62px);
+  line-height: 0.96;
+  letter-spacing: -0.05em;
+}
+
+.lead {
+  margin: 18px 0 0 0;
+  color: #475569;
+  font-size: 17px;
+  line-height: 1.6;
+  max-width: 740px;
+}
+
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.featureCard {
+  min-height: 146px;
+  padding: 16px;
+  border-radius: 18px;
+  border: 1px solid rgba(226, 232, 240, 0.92);
+  background: rgba(248, 250, 252, 0.72);
+  display: grid;
+  gap: 8px;
+  align-content: start;
+}
+
+.featureCard span {
+  font-size: 28px;
+}
+
+.featureCard strong {
+  color: #0f172a;
+}
+
+.featureCard small,
+.emptyState,
+.dashboardCard p,
+.statCard small,
+.savedItem small {
+  color: #64748b;
+  line-height: 1.45;
+}
+
+.authCard {
+  padding: 18px;
+}
+
+.modeSwitch {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding: 6px;
+  border-radius: 18px;
+  background: rgba(241, 245, 249, 0.92);
+}
+
+.modeButton,
+.modeActive,
+.submitButton,
+.saveButton,
+.logoutButton,
+.inlineButton,
+.savedActions button,
+.chip,
+.chipActive {
+  appearance: none;
+  border: 1px solid rgba(226, 232, 240, 0.92);
+  border-radius: 14px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.modeButton,
+.modeActive {
+  padding: 12px;
+  background: transparent;
+  color: #334155;
+}
+
+.modeActive {
+  background: white;
+  color: #1d4ed8;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
+}
+
+.form,
+.dashboardStack {
+  display: grid;
+  gap: 14px;
+}
+
+.form {
+  margin-top: 18px;
+}
+
+.field {
+  display: grid;
+  gap: 7px;
+  color: #334155;
+  font-weight: 800;
+  font-size: 13px;
+}
+
+.field input,
+.field select {
+  width: 100%;
+  min-height: 48px;
+  border: 1px solid rgba(203, 213, 225, 0.95);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #0f172a;
+  padding: 12px 14px;
+  font: inherit;
+  outline: none;
+}
+
+.field input:focus,
+.field select:focus {
+  border-color: rgba(37, 99, 235, 0.48);
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12);
+}
+
+.submitButton,
+.saveButton,
+.logoutButton,
+.inlineButton {
+  min-height: 46px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 18px;
+  background: #2563eb;
+  border-color: rgba(37, 99, 235, 0.4);
+  color: white;
+}
+
+.submitButton:disabled,
+.saveButton:disabled,
+.savedActions button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.error,
+.notice {
+  border-radius: 14px;
+  padding: 11px 12px;
+  font-weight: 800;
+  font-size: 13px;
+}
+
+.error {
+  background: rgba(254, 226, 226, 0.92);
+  color: #991b1b;
+  border: 1px solid rgba(248, 113, 113, 0.35);
+}
+
+.notice {
+  background: rgba(219, 234, 254, 0.85);
+  color: #1e40af;
+  border: 1px solid rgba(96, 165, 250, 0.36);
+}
+
+.loadingCard {
+  width: min(720px, 100%);
+  margin: 0 auto;
+  padding: 28px;
+  font-weight: 900;
+}
+
+.dashboardShell {
+  display: grid;
+  gap: 18px;
+}
+
+.dashboardHero {
+  padding: 28px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.logoutButton {
+  background: rgba(15, 23, 42, 0.06);
+  border-color: rgba(15, 23, 42, 0.1);
+  color: #0f172a;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.statCard {
+  padding: 18px;
+  display: grid;
+  gap: 4px;
+}
+
+.statCard span {
+  font-size: 32px;
+  font-weight: 950;
+  color: #0f172a;
+}
+
+.dashboardGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(360px, 1.08fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.dashboardCard {
+  padding: 20px;
+}
+
+.dashboardCard h2 {
+  margin: 0;
+  color: #0f172a;
+}
+
+.cardHeaderInline {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.preferenceGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.toggleRow {
+  min-height: 48px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  border: 1px solid rgba(226, 232, 240, 0.92);
+  border-radius: 14px;
+  background: rgba(248, 250, 252, 0.82);
+  padding: 12px;
+  font-weight: 800;
+  color: #334155;
+}
+
+.chipGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin: 16px 0;
+}
+
+.chip,
+.chipActive {
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.86);
+  color: #334155;
+}
+
+.chipActive {
+  color: #1d4ed8;
+  border-color: rgba(37, 99, 235, 0.38);
+  background: rgba(37, 99, 235, 0.1);
+}
+
+.savedList {
+  display: grid;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.savedItem {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: center;
+  padding: 14px;
+  border: 1px solid rgba(226, 232, 240, 0.92);
+  border-radius: 16px;
+  background: rgba(248, 250, 252, 0.78);
+}
+
+.savedItem div:first-child {
+  display: grid;
+  gap: 4px;
+}
+
+.savedActions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.savedActions a,
+.savedActions button {
+  min-height: 36px;
+  padding: 0 12px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.savedActions a {
+  display: inline-flex;
+  align-items: center;
+  color: #1d4ed8;
+  background: rgba(37, 99, 235, 0.1);
+}
+
+.savedActions button {
+  color: #991b1b;
+  background: rgba(254, 226, 226, 0.72);
+  border-color: rgba(248, 113, 113, 0.32);
+}
+
+.inlineButton {
+  margin-top: 14px;
+  width: fit-content;
+}
+
+@media (max-width: 960px) {
+  .authShell,
+  .dashboardGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .authShell {
+    align-items: stretch;
+  }
+
+  .authCard {
+    order: -1;
+  }
+
+  .dashboardHero,
+  .savedItem,
+  .cardHeaderInline {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .logoutButton,
+  .saveButton {
+    width: 100%;
+  }
+}
+
+@media (max-width: 680px) {
+  .page {
+    padding: 76px 14px 28px 14px;
+  }
+
+  .authInfo,
+  .authCard,
+  .dashboardCard,
+  .dashboardHero,
+  .statCard {
+    border-radius: 18px;
+  }
+
+  .authInfo,
+  .dashboardHero {
+    padding: 20px;
+  }
+
+  .featureGrid,
+  .statsGrid,
+  .preferenceGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .title {
+    font-size: 34px;
+    letter-spacing: -0.04em;
+  }
+
+  .lead {
+    font-size: 15px;
+  }
+
+  .savedActions {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .savedActions a,
+  .savedActions button {
+    justify-content: center;
+  }
+}

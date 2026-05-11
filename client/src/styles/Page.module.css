@@ -520,3 +520,82 @@
     height: 420px;
   }
 }
+
+/* ===== Account action card ===== */
+.actionBody {
+  padding: 14px 18px 16px 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.primaryAction,
+.secondaryAction {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 13px;
+  padding: 0 14px;
+  font-weight: 900;
+  font-size: 13px;
+  cursor: pointer;
+  border: 1px solid rgba(37, 99, 235, 0.28);
+}
+
+.primaryAction {
+  background: #2563eb;
+  color: #fff;
+}
+
+.primaryAction:disabled {
+  opacity: 0.72;
+  cursor: not-allowed;
+}
+
+.secondaryAction {
+  background: rgba(37, 99, 235, 0.1);
+  color: #1d4ed8;
+}
+
+.actionHint {
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.inlineNotice {
+  width: 100%;
+  border-radius: 13px;
+  border: 1px solid rgba(96, 165, 250, 0.32);
+  background: rgba(219, 234, 254, 0.84);
+  color: #1e40af;
+  font-size: 13px;
+  font-weight: 800;
+  padding: 10px 12px;
+}
+
+@media (max-width: 620px) {
+  .actionBody {
+    display: grid;
+  }
+
+  .primaryAction,
+  .secondaryAction {
+    width: 100%;
+  }
+
+  .quickGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .splitHeader {
+    display: grid;
+  }
+
+  .metricGrid,
+  .dataGrid2 {
+    grid-template-columns: 1fr;
+  }
+}

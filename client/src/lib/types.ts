@@ -39,3 +39,36 @@ export type CommunityResource = {
   lat: number;
   lng: number;
 };
+
+export type SavedLocation = {
+  slug: string;
+  label: string;
+  type: PlaceType;
+  state?: string;
+  center: [number, number];
+  addedAt: string;
+};
+
+export type AlertPreferences = {
+  emailAlerts: boolean;
+  inAppAlerts: boolean;
+  minimumSeverity: string;
+  hazards: string[];
+  weeklySummary: boolean;
+  quietHours: boolean;
+};
+
+export type AuthUser = {
+  id: string;
+  name: string;
+  email: string;
+  createdAt: string;
+  updatedAt: string;
+  savedLocations: SavedLocation[];
+  preferences: AlertPreferences;
+};
+
+export type AuthResponse = {
+  token: string;
+  user: AuthUser;
+};
