@@ -12,7 +12,6 @@ export const appRoutes = [
   { path: "/us/:slug", element: <AreaPage /> },
   { path: "/fire", element: <FireMapPage /> },
   { path: "/fire/:slug", element: <FireAreaPage /> }
-  { path: "/about", element: <AboutPage /> }
-  { path: "/fire/:slug", element: <FireAreaPage /> },
+  { path: "/about", element: <AboutPage /> },
   { path: "/methodology", element: <MethodologyPage />}
 ];
