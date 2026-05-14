@@ -21,6 +21,40 @@
         "weeklySummary": true,
         "quietHours": false
       }
+    },
+    {
+      "id": "6353b04f-2bf1-49c5-a6a8-1f45f793e9e4",
+      "name": "test tester",
+      "email": "test2@gmail.com",
+      "passwordHash": "d86809c9d1b86282e26329c39d53dfd50318c7820b749de8ba3628491fe49f1f31a4a9676cc0336f6893d6b84c2de78c109b07f09ae99fd18fdaa7f40f718f39",
+      "passwordSalt": "2f21d9c6520578fd638bc35545d9aa5f",
+      "createdAt": "2026-05-12T09:55:19.421Z",
+      "updatedAt": "2026-05-13T06:15:49.430Z",
+      "savedLocations": [
+        {
+          "slug": "los-angeles-ca",
+          "label": "Los Angeles, CA",
+          "type": "city",
+          "state": "CA",
+          "center": [
+            34.0522,
+            -118.2437
+          ],
+          "addedAt": "2026-05-13T06:15:49.137Z"
+        }
+      ],
+      "preferences": {
+        "emailAlerts": true,
+        "inAppAlerts": true,
+        "minimumSeverity": "Medium",
+        "hazards": [
+          "Wildfire",
+          "Flood",
+          "Severe storm"
+        ],
+        "weeklySummary": true,
+        "quietHours": false
+      }
     }
   ]
 }

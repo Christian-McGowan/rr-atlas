@@ -28,7 +28,10 @@ const PLACES: Place[] = [
     label: "Los Angeles, CA",
     state: "CA",
     center: [34.0522, -118.2437],
-    bounds: [[33.70, -118.70], [34.35, -117.90]],
+    bounds: [
+      [33.7, -118.7],
+      [34.35, -117.9]
+    ],
     aliases: ["la", "los angeles", "los angeles ca", "los-angeles", "losangeles"]
   },
   {
@@ -38,8 +41,37 @@ const PLACES: Place[] = [
     label: "90001 (Los Angeles, CA)",
     state: "CA",
     center: [33.9739, -118.2479],
-    bounds: [[33.94, -118.28], [34.01, -118.20]],
+    bounds: [
+      [33.94, -118.28],
+      [34.01, -118.2]
+    ],
     aliases: ["90001", "la 90001", "los angeles 90001"]
+  },
+  {
+    id: "city_fullerton",
+    type: "city",
+    slug: "fullerton-ca",
+    label: "Fullerton, CA",
+    state: "CA",
+    center: [33.8704, -117.9242],
+    bounds: [
+      [33.82, -117.99],
+      [33.93, -117.86]
+    ],
+    aliases: ["fullerton", "fullerton ca", "fullerton california"]
+  },
+  {
+    id: "city_irvine",
+    type: "city",
+    slug: "irvine-ca",
+    label: "Irvine, CA",
+    state: "CA",
+    center: [33.6846, -117.8265],
+    bounds: [
+      [33.6, -117.89],
+      [33.75, -117.68]
+    ],
+    aliases: ["irvine", "irvine ca", "irvine california"]
   },
   {
     id: "city_sandiego",
@@ -48,7 +80,10 @@ const PLACES: Place[] = [
     label: "San Diego, CA",
     state: "CA",
     center: [32.7157, -117.1611],
-    bounds: [[32.53, -117.30], [32.93, -116.90]],
+    bounds: [
+      [32.53, -117.3],
+      [32.93, -116.9]
+    ],
     aliases: ["san diego", "san diego ca", "sd"]
   }
 ];
@@ -70,6 +105,22 @@ const RISK: Record<string, RiskSnapshot> = {
     expectedAnnualLossM: 36,
     topHazards: ["Wildfire smoke", "Heat", "Flooding (flash)"]
   },
+  "fullerton-ca": {
+    placeSlug: "fullerton-ca",
+    overallRisk: 54,
+    resilience: 64,
+    socialVulnerability: 35,
+    expectedAnnualLossM: 42,
+    topHazards: ["Localized flooding", "Heat", "Earthquake", "Air quality"]
+  },
+  "irvine-ca": {
+    placeSlug: "irvine-ca",
+    overallRisk: 46,
+    resilience: 70,
+    socialVulnerability: 28,
+    expectedAnnualLossM: 38,
+    topHazards: ["Wildfire edge risk", "Heat", "Air quality", "Earthquake"]
+  },
   "san-diego-ca": {
     placeSlug: "san-diego-ca",
     overallRisk: 61,
@@ -87,7 +138,10 @@ export function getPlaceBySlug(slug: string) {
 export function searchPlaces(raw: string) {
   const q = raw.trim().toLowerCase();
   if (!q) return [];
-  return PLACES.filter((p) => p.aliases.some((a) => a === q || a.includes(q) || q.includes(a)));
+
+  return PLACES.filter((p) =>
+    p.aliases.some((a) => a === q || a.includes(q) || q.includes(a))
+  );
 }
 
 export function getRiskForPlace(placeSlug: string) {

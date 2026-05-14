@@ -1,0 +1,972 @@
+/* Mobile-only layout polish for the R&R Atlas prototype.
+   Desktop views are intentionally left alone. */
+
+@media (max-width: 760px) {
+  :root {
+    --m-bg: #eef6ff;
+    --m-card: #ffffff;
+    --m-text: #0f172a;
+    --m-muted: #64748b;
+    --m-border: #dbe7f3;
+    --m-blue: #2563eb;
+    --m-soft-blue: rgba(37, 99, 235, 0.1);
+    --m-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+  }
+
+  html,
+  body,
+  #root {
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    margin: 0;
+    background:
+      radial-gradient(circle at 5% 8%, rgba(186, 230, 253, 0.42), transparent 30%),
+      radial-gradient(circle at 92% 12%, rgba(224, 231, 255, 0.66), transparent 34%),
+      var(--m-bg) !important;
+    color: var(--m-text);
+    -webkit-text-size-adjust: 100%;
+  }
+
+  #root > main,
+  main[class*="page"],
+  [class*="pageNoScroll"],
+  .compare-page,
+  .info-page {
+    padding-top: 58px !important;
+    padding-bottom: calc(76px + env(safe-area-inset-bottom)) !important;
+    min-height: 100dvh !important;
+    overflow-x: hidden !important;
+  }
+
+  /* Keep mobile typography compact instead of pushing content far down. */
+  h1,
+  [class*="title"],
+  .compare-intro h1,
+  .info-page h1 {
+    font-size: clamp(27px, 8vw, 34px) !important;
+    line-height: 1.05 !important;
+    letter-spacing: -0.04em !important;
+  }
+
+  h2,
+  [class*="cardTitle"],
+  .compare-table-header h2,
+  .info-page h2 {
+    font-size: 19px !important;
+    line-height: 1.18 !important;
+  }
+
+  p,
+  [class*="subtitle"],
+  [class*="lead"],
+  [class*="cardSub"],
+  .compare-intro p,
+  .info-page p {
+    font-size: 14px !important;
+    line-height: 1.48 !important;
+  }
+
+  /* Shared cards */
+  [class*="card"],
+  [class*="Card"],
+  .compare-selector-card,
+  .compare-table-card,
+  .info-card {
+    border-radius: 18px !important;
+    border-color: var(--m-border) !important;
+    box-shadow: var(--m-shadow) !important;
+  }
+
+  [class*="cardHeader"],
+  [class*="cardHeaderInline"] {
+    padding: 14px !important;
+    gap: 10px !important;
+  }
+
+  [class*="cardBody"],
+  [class*="cardBodyStack"] {
+    padding: 14px !important;
+  }
+
+  /* Search bars: one row on normal phones, stack only on very narrow screens. */
+  form[class*="form"] {
+    width: 100% !important;
+  }
+
+  form:has(input[class*="input"]) {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    gap: 8px !important;
+    align-items: stretch !important;
+  }
+
+  input[class*="input"] {
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 46px !important;
+    border-radius: 14px !important;
+    padding: 10px 13px !important;
+    font-size: 16px !important;
+    background: #ffffff !important;
+    border: 1px solid #bfdbfe !important;
+    box-shadow: inset 0 0 0 1px rgba(37, 99, 235, 0.04) !important;
+  }
+
+  button[class*="button"] {
+    min-height: 46px !important;
+    border-radius: 14px !important;
+    padding: 0 14px !important;
+    font-size: 14px !important;
+    font-weight: 900 !important;
+  }
+
+  [class*="error"] {
+    border-radius: 12px !important;
+    font-size: 13px !important;
+  }
+
+  /* Landing page: compact search -> one-line chips -> staged map preview. */
+  [class*="pageNoScroll"] {
+    padding-bottom: calc(76px + env(safe-area-inset-bottom)) !important;
+  }
+
+  [class*="heroCompact"] {
+    width: auto !important;
+    margin: 10px 12px 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  [class*="heroInnerCompact"] {
+    padding: 12px !important;
+    border: 1px solid var(--m-border) !important;
+    border-radius: 20px !important;
+    background: rgba(255, 255, 255, 0.88) !important;
+    box-shadow: var(--m-shadow) !important;
+  }
+
+  [class*="heroCompact"] [class*="subtitle"],
+  [class*="heroCompact"] [class*="subtitleCompact"] {
+    margin: 0 0 10px !important;
+    color: #334155 !important;
+    font-size: 13px !important;
+    line-height: 1.35 !important;
+  }
+
+  [class*="landingShell"] {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+    padding: 10px 12px 16px !important;
+  }
+
+  [class*="landingRight"] {
+    order: 1 !important;
+    position: static !important;
+    display: block !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  [class*="landingLeft"] {
+    order: 2 !important;
+    padding: 0 !important;
+    display: block !important;
+    min-width: 0 !important;
+  }
+
+  [class*="quickCard"] {
+    width: 100% !important;
+    padding: 10px 0 2px !important;
+    border: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  [class*="quickTitle"],
+  [class*="quickSub"],
+  [class*="quickHint"] {
+    display: none !important;
+  }
+
+  [class*="quickGrid"] {
+    display: flex !important;
+    gap: 8px !important;
+    overflow-x: auto !important;
+    padding: 0 2px 8px !important;
+    margin: 0 !important;
+    scrollbar-width: none !important;
+  }
+
+  [class*="quickGrid"]::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  [class*="quickBtn"] {
+    flex: 0 0 auto !important;
+    width: auto !important;
+    min-height: 34px !important;
+    padding: 7px 11px !important;
+    border-radius: 999px !important;
+    background: rgba(255, 255, 255, 0.9) !important;
+    border: 1px solid var(--m-border) !important;
+    color: #334155 !important;
+    font-size: 12px !important;
+    font-weight: 900 !important;
+    box-shadow: none !important;
+  }
+
+  [class*="quickEmoji"] {
+    font-size: 10px !important;
+  }
+
+  [class*="mapHeroCard"] {
+    height: 330px !important;
+    min-height: 330px !important;
+    border-radius: 20px !important;
+    border: 1px solid var(--m-border) !important;
+    overflow: hidden !important;
+    background: #ffffff !important;
+    box-shadow: var(--m-shadow) !important;
+  }
+
+  [class*="mapHeroCard"] > div,
+  [class*="mapHeroCard"] .leaflet-container,
+  [class*="mapHeroCard"] [style*="--map-height"] {
+    height: 100% !important;
+    min-height: 0 !important;
+    border-radius: 20px !important;
+  }
+
+  /* Map staging: maps remain visible but do not steal page scrolling on phones. */
+  .leaflet-container {
+    pointer-events: none !important;
+    touch-action: pan-y !important;
+  }
+
+  .leaflet-control-container,
+  [class*="eventToggle"],
+  [class*="mapOverlay"] {
+    pointer-events: auto !important;
+  }
+
+  .leaflet-control-zoom a {
+    width: 32px !important;
+    height: 32px !important;
+    line-height: 32px !important;
+  }
+
+  .leaflet-control-attribution {
+    max-width: calc(100vw - 96px) !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+    font-size: 10px !important;
+  }
+
+  [class*="eventToggle"],
+  [class*="mapOverlay"] {
+    left: 10px !important;
+    right: 10px !important;
+    bottom: 10px !important;
+    max-width: calc(100% - 20px) !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 7px !important;
+  }
+
+  [class*="eventBtn"],
+  [class*="pill"] {
+    min-height: 31px !important;
+    padding: 6px 9px !important;
+    border-radius: 999px !important;
+    font-size: 12px !important;
+  }
+
+  /* Search / area / fire pages: no sticky map on mobile; content is a normal scroll page. */
+  [class*="content"],
+  [class*="mapSection"],
+  [class*="mapSectionCompact"],
+  [class*="splitShell"],
+  [class*="detailShell"] {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  [class*="hero"],
+  [class*="detailHero"] {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  [class*="splitShell"],
+  [class*="detailShell"] {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    padding-top: 12px !important;
+    padding-bottom: 16px !important;
+  }
+
+  [class*="splitHeader"] {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  [class*="splitHeaderSearch"],
+  [class*="headerSearch"] {
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+  }
+
+  [class*="splitRight"],
+  [class*="detailRight"] {
+    position: static !important;
+    order: 1 !important;
+    height: auto !important;
+    padding: 0 !important;
+  }
+
+  [class*="splitLeft"],
+  [class*="detailLeft"] {
+    order: 2 !important;
+    padding: 0 !important;
+    min-width: 0 !important;
+  }
+
+  [class*="stickyCard"],
+  [class*="stickyMapCard"] {
+    height: 300px !important;
+    min-height: 300px !important;
+    border-radius: 20px !important;
+    overflow: hidden !important;
+  }
+
+  [class*="stickyBody"],
+  [class*="mapFrame"] {
+    min-height: 0 !important;
+    height: 100% !important;
+  }
+
+  [class*="mapHeaderRow"] {
+    padding: 10px 12px !important;
+    background: rgba(255, 255, 255, 0.9) !important;
+  }
+
+  [class*="metricGrid"],
+  [class*="dataGrid2"] {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 9px !important;
+  }
+
+  [class*="metric"] {
+    min-height: 72px !important;
+    padding: 11px !important;
+    border-radius: 15px !important;
+  }
+
+  [class*="metricLabel"] {
+    font-size: 10px !important;
+  }
+
+  [class*="metricValue"] {
+    font-size: 22px !important;
+  }
+
+  [class*="actionBody"] {
+    display: grid !important;
+    gap: 9px !important;
+  }
+
+  [class*="primaryAction"],
+  [class*="secondaryAction"] {
+    width: 100% !important;
+  }
+
+  /* Account / login / signup: lighter, shorter, and card-focused. */
+  main[class*="page"]:has([class*="authShell"]),
+  main[class*="page"]:has([class*="dashboardShell"]) {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    background: transparent !important;
+  }
+
+  [class*="authShell"] {
+    width: 100% !important;
+    max-width: 430px !important;
+    margin: 12px auto 0 !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    align-items: stretch !important;
+  }
+
+  [class*="authCard"] {
+    order: 1 !important;
+    padding: 16px !important;
+    background: rgba(255, 255, 255, 0.94) !important;
+  }
+
+  [class*="authInfo"] {
+    order: 2 !important;
+    padding: 16px !important;
+    background: rgba(255, 255, 255, 0.78) !important;
+  }
+
+  [class*="authInfo"] [class*="eyebrow"] {
+    padding: 5px 8px !important;
+    font-size: 10px !important;
+  }
+
+  [class*="authInfo"] [class*="title"] {
+    margin-top: 8px !important;
+    font-size: 23px !important;
+  }
+
+  [class*="authInfo"] [class*="lead"] {
+    margin-top: 8px !important;
+    font-size: 13px !important;
+  }
+
+  [class*="featureGrid"] {
+    display: none !important;
+  }
+
+  [class*="modeSwitch"] {
+    border-radius: 16px !important;
+    padding: 4px !important;
+    gap: 5px !important;
+  }
+
+  [class*="modeButton"],
+  [class*="modeActive"] {
+    min-height: 40px !important;
+    border-radius: 12px !important;
+    padding: 9px !important;
+    font-size: 13px !important;
+  }
+
+  [class*="form"] {
+    gap: 11px !important;
+  }
+
+  [class*="field"] {
+    gap: 5px !important;
+    font-size: 12px !important;
+  }
+
+  [class*="field"] input,
+  [class*="field"] select {
+    min-height: 45px !important;
+    border-radius: 13px !important;
+    font-size: 16px !important;
+    padding: 10px 12px !important;
+  }
+
+  [class*="submitButton"],
+  [class*="saveButton"],
+  [class*="logoutButton"],
+  [class*="inlineButton"] {
+    min-height: 44px !important;
+    border-radius: 13px !important;
+  }
+
+  [class*="dashboardShell"] {
+    width: 100% !important;
+    margin: 12px auto 0 !important;
+    display: grid !important;
+    gap: 12px !important;
+  }
+
+  [class*="dashboardHero"] {
+    padding: 16px !important;
+    display: grid !important;
+    grid-template-columns: 1fr auto !important;
+    align-items: center !important;
+    gap: 12px !important;
+    background: rgba(255, 255, 255, 0.9) !important;
+  }
+
+  [class*="dashboardHero"] [class*="eyebrow"] {
+    display: none !important;
+  }
+
+  [class*="dashboardHero"] [class*="title"] {
+    font-size: 25px !important;
+    margin: 0 !important;
+  }
+
+  [class*="dashboardHero"] [class*="lead"] {
+    margin: 6px 0 0 !important;
+    font-size: 13px !important;
+  }
+
+  [class*="dashboardHero"] [class*="logoutButton"] {
+    width: auto !important;
+    padding: 0 12px !important;
+    background: rgba(15, 23, 42, 0.05) !important;
+  }
+
+  [class*="statsGrid"] {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+  }
+
+  [class*="statCard"] {
+    min-height: 82px !important;
+    padding: 12px !important;
+    gap: 2px !important;
+    background: rgba(255, 255, 255, 0.9) !important;
+  }
+
+  [class*="statCard"] span {
+    font-size: 22px !important;
+    line-height: 1.05 !important;
+    word-break: break-word !important;
+  }
+
+  [class*="statCard"] small {
+    font-size: 11px !important;
+    line-height: 1.2 !important;
+  }
+
+  [class*="dashboardGrid"] {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  [class*="dashboardStack"] {
+    gap: 12px !important;
+  }
+
+  [class*="dashboardCard"] {
+    padding: 16px !important;
+    background: rgba(255, 255, 255, 0.92) !important;
+  }
+
+  [class*="cardHeaderInline"] {
+    display: grid !important;
+    grid-template-columns: 1fr auto !important;
+    align-items: center !important;
+    margin-bottom: 12px !important;
+  }
+
+  [class*="cardHeaderInline"] p {
+    margin: 4px 0 0 !important;
+  }
+
+  [class*="preferenceGrid"] {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+  }
+
+  [class*="toggleRow"] {
+    min-height: 42px !important;
+    padding: 9px !important;
+    border-radius: 13px !important;
+    font-size: 12px !important;
+  }
+
+  [class*="chipGroup"] {
+    gap: 7px !important;
+    margin: 12px 0 !important;
+  }
+
+  [class*="chip"],
+  [class*="chipActive"] {
+    padding: 8px 9px !important;
+    border-radius: 999px !important;
+    font-size: 12px !important;
+  }
+
+  [class*="savedItem"] {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+    padding: 12px !important;
+  }
+
+  [class*="savedActions"] {
+    width: 100% !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+  }
+
+  [class*="savedActions"] a,
+  [class*="savedActions"] button {
+    justify-content: center !important;
+  }
+
+  /* Compare page: one comparison pair at a time, compact cards. */
+  .compare-page {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    background: transparent !important;
+  }
+
+  .compare-shell {
+    max-width: 100% !important;
+    gap: 12px !important;
+  }
+
+  .compare-intro {
+    margin-top: 12px !important;
+  }
+
+  .compare-eyebrow {
+    display: none !important;
+  }
+
+  .compare-selector-card {
+    padding: 14px !important;
+    background: rgba(255, 255, 255, 0.9) !important;
+  }
+
+  .compare-selector-card h2 {
+    margin-bottom: 10px !important;
+  }
+
+  .compare-selector-row {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+  }
+
+  .compare-city-button {
+    min-height: 42px !important;
+    padding: 8px 9px !important;
+    border-radius: 13px !important;
+    font-size: 13px !important;
+  }
+
+  .compare-table-card {
+    background: rgba(255, 255, 255, 0.92) !important;
+    overflow: hidden !important;
+  }
+
+  .compare-table-header {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    padding: 15px !important;
+  }
+
+  .compare-table-header p {
+    font-size: 13px !important;
+    line-height: 1.4 !important;
+  }
+
+  .compare-profile-link {
+    width: fit-content !important;
+    min-height: 34px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+  }
+
+  .compare-table-scroll table {
+    min-width: 0 !important;
+  }
+
+  .compare-table-scroll th,
+  .compare-table-scroll td {
+    padding: 12px 10px !important;
+    font-size: 13px !important;
+  }
+
+  /* Methodology / About pages: mobile-only presentation. */
+  .info-page {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    background: transparent !important;
+  }
+
+  .info-shell {
+    max-width: 720px !important;
+    margin: 12px auto 0 !important;
+    display: grid !important;
+    gap: 12px !important;
+  }
+
+  .info-card {
+    padding: 18px !important;
+    background: rgba(255, 255, 255, 0.92) !important;
+    border: 1px solid var(--m-border) !important;
+  }
+
+  .info-page h1,
+  .info-page h2,
+  .info-page p,
+  .info-page ul {
+    text-align: left !important;
+  }
+
+  .info-page h1 {
+    margin: 0 0 10px !important;
+  }
+
+  .info-page h2 {
+    margin: 18px 0 8px !important;
+  }
+
+  .info-page p {
+    margin: 0 0 12px !important;
+    color: #334155 !important;
+  }
+
+  .info-page ul {
+    margin: 0 !important;
+    padding-left: 18px !important;
+    color: #334155 !important;
+  }
+
+  .info-page li {
+    margin: 6px 0 !important;
+    font-size: 14px !important;
+    line-height: 1.45 !important;
+  }
+}
+
+@media (max-width: 420px) {
+  [class*="metricGrid"],
+  [class*="dataGrid2"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  [class*="statsGrid"] {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  [class*="statsGrid"] [class*="statCard"]:last-child {
+    grid-column: 1 / -1 !important;
+  }
+}
+
+@media (max-width: 360px) {
+  form:has(input[class*="input"]) {
+    grid-template-columns: 1fr !important;
+  }
+
+  button[class*="button"] {
+    width: 100% !important;
+  }
+
+  .compare-selector-row,
+  [class*="preferenceGrid"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  [class*="mapHeroCard"],
+  [class*="stickyCard"],
+  [class*="stickyMapCard"] {
+    height: 285px !important;
+    min-height: 285px !important;
+  }
+}
+
+/* ---- Mobile v4 fixes: contain landing layout, restore map interaction, keep desktop info pages unchanged. ---- */
+@media (min-width: 761px) {
+  .mobile-info-copy {
+    display: none !important;
+  }
+}
+
+@media (max-width: 760px) {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html,
+  body,
+  #root {
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+  }
+
+  #root > main,
+  main[class*="page"],
+  [class*="pageNoScroll"],
+  .compare-page,
+  .info-page {
+    width: 100% !important;
+    max-width: 100vw !important;
+  }
+
+  /* Keep the desktop About/Method markup from appearing on phones. */
+  .desktop-info-copy {
+    display: none !important;
+  }
+
+  .mobile-info-copy {
+    display: grid !important;
+  }
+
+  /* Landing page containment: stop the search/map/chips from extending past the phone viewport. */
+  [class*="pageNoScroll"] {
+    overflow-y: auto !important;
+    padding-bottom: calc(86px + env(safe-area-inset-bottom)) !important;
+  }
+
+  [class*="heroCompact"],
+  [class*="landingShell"],
+  [class*="landingLeft"],
+  [class*="landingRight"],
+  [class*="quickCard"],
+  [class*="mapHeroCard"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  [class*="heroCompact"] {
+    margin: 8px 0 0 !important;
+    padding: 0 10px !important;
+  }
+
+  [class*="heroInnerCompact"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 10px !important;
+    overflow: hidden !important;
+  }
+
+  [class*="heroCompact"] [class*="subtitle"],
+  [class*="heroCompact"] [class*="subtitleCompact"] {
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    margin-bottom: 8px !important;
+  }
+
+  [class*="heroCompact"] form[class*="form"],
+  [class*="splitHeaderSearch"] form[class*="form"],
+  [class*="headerSearch"] form[class*="form"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    gap: 8px !important;
+  }
+
+  [class*="heroCompact"] input[class*="input"],
+  [class*="splitHeaderSearch"] input[class*="input"],
+  [class*="headerSearch"] input[class*="input"] {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  [class*="heroCompact"] button[class*="button"],
+  [class*="splitHeaderSearch"] button[class*="button"],
+  [class*="headerSearch"] button[class*="button"] {
+    width: auto !important;
+    min-width: 84px !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  [class*="landingShell"] {
+    margin: 0 !important;
+    padding: 8px 10px 18px !important;
+    overflow: visible !important;
+  }
+
+  [class*="quickCard"] {
+    overflow: hidden !important;
+  }
+
+  [class*="quickGrid"] {
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    overscroll-behavior-x: contain !important;
+  }
+
+  [class*="mapHeroCard"] {
+    height: min(330px, 44dvh) !important;
+    min-height: 285px !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+  }
+
+  [class*="mapHeroCard"] [class*="wrap"],
+  [class*="mapHeroCard"] .leaflet-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+  }
+
+  /* Search/detail pages: staged maps that are compact enough to let the page scroll outside the map. */
+  [class*="stickyCard"],
+  [class*="stickyMapCard"] {
+    height: min(330px, 44dvh) !important;
+    min-height: 290px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  [class*="stickyBody"],
+  [class*="mapFrame"],
+  [class*="mapFrame"] [class*="wrap"],
+  [class*="stickyBody"] [class*="wrap"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 100% !important;
+  }
+
+  /* Restore real map interaction on mobile. Earlier pass made the map mostly untouchable. */
+  .leaflet-container {
+    pointer-events: auto !important;
+    touch-action: none !important;
+  }
+
+  .leaflet-pane,
+  .leaflet-tile,
+  .leaflet-marker-icon,
+  .leaflet-marker-shadow,
+  .leaflet-control-container,
+  .leaflet-control,
+  .leaflet-control a,
+  .leaflet-popup,
+  [class*="eventToggle"],
+  [class*="mapOverlay"] {
+    pointer-events: auto !important;
+  }
+
+  .leaflet-control-container {
+    z-index: 1200 !important;
+  }
+
+  .leaflet-control-zoom {
+    margin-left: 10px !important;
+    margin-top: 10px !important;
+  }
+
+  [class*="eventToggle"],
+  [class*="mapOverlay"] {
+    z-index: 1300 !important;
+  }
+}
+
+@media (max-width: 390px) {
+  [class*="heroCompact"] form[class*="form"],
+  [class*="splitHeaderSearch"] form[class*="form"],
+  [class*="headerSearch"] form[class*="form"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  [class*="heroCompact"] button[class*="button"],
+  [class*="splitHeaderSearch"] button[class*="button"],
+  [class*="headerSearch"] button[class*="button"] {
+    width: 100% !important;
+  }
+}
